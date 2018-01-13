@@ -1,0 +1,17 @@
+#!/bin/bash -x
+# Download and extract playbook
+ping google.com -c 4
+
+rm -rf /tmp/ansible.tar*
+
+wget https://s3-eu-west-1.amazonaws.com/raspberryPiNetworkMonitor/ansible.tar.gpg -O /tmp/ansible.tar.gpg
+
+gpg -u 559CA445C16BF58C4125521C3E8EF3D7E64FF714 \
+    --output /tmp/ansible.tar \
+    --decrypt /tmp/ansible.tar.gpg \
+    || exit 3
+
+tar xvfp "/tmp/ansible.tar" --directory "/tmp/"
+
+# Run playbook
+HOME=/root ansible-playbook -i 'localhost,' -c local "/tmp/ansible/playbook.yml"

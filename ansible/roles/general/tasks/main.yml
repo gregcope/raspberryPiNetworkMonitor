@@ -1,0 +1,100 @@
+# TODO: Wifi, Change pi usder password, enabled ssh
+- name: Manage ansible-playbook file
+  become: yes
+  become_user: root
+  copy:
+    src: "{{playbook_dir}}/roles/general/files/ansible-playbook"
+    dest: /usr/local/sbin/ansible-playbook
+
+- name: Install networkmon code signing key
+  become: yes
+  become_user: root
+  copy:
+    src: "{{playbook_dir}}/roles/general/files/networkmon-signing-key.gpg"
+    dest: /root/networkmon-signing-key.gpg
+
+- name: Install networkmon code signing key
+  become: yes
+  become_user: root
+  command: gpg --import /root/networkmon-signing-key.gpg
+
+- name: Install SSH keys
+  authorized_key:
+    user: networkmon
+    state: present
+    key: "{{ lookup('file', '{{playbook_dir}}/roles/general/files/ssh.keys') }}"
+
+- name: Copy sshd_config
+  become: yes
+  become_user: root
+  copy:
+    src: "{{playbook_dir}}/roles/general/files/sshd_config"
+    dest: /etc/ssh/sshd_config
+  notify: restart sshd
+
+- name: Update everything
+  become: yes
+  become_user: root
+  apt:
+    upgrade: dist
+    update_cache: yes
+
+- name: Install necessary packages
+  become: yes
+  become_user: root
+  apt:
+    state: installed
+    pkg: "{{item}}"
+  with_items:
+    - curl
+    - libc6
+    - nload
+    - net-tools
+    - liboping0
+    - libpam-google-authenticator
+
+- name: Download SSM agent
+  get_url:
+    url: https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb
+    dest: /tmp/amazon-ssm-agent.deb
+    force: no
+
+- name: Install SSM agent
+  apt:
+    state: installed
+    deb: /tmp/amazon-ssm-agent.deb
+
+- name: Enable SSM agent
+  become: yes
+  become_user: root
+  command: systemctl enable amazon-ssm-agent
+
+- name: Install Unattended-upgrades
+  become: yes
+  become_user: root
+  apt: "name=unattended-upgrades"
+
+- name: setup schedule for unattended upgrades
+  become: yes
+  become_user: root
+  copy:
+    src: "{{playbook_dir}}/roles/general/files/50unattended-upgrades"
+    dest: /etc/apt/apt.conf.d/50unattended-upgrades
+
+- name: "Schedule automatic updates for this Ansible playbook"
+  cron:
+    minute: "0"
+    job: "/usr/local/sbin/ansible-playbook"
+    name: "ansible-playbook"
+
+- name: Disable audio in config.txt
+  lineinfile:
+    path: /boot/config.txt
+    regexp: '^dtparam=audio=on'
+    line: '#dtparam=audio=on'
+
+- name: lower gpu mem in config.txt at EOF
+  lineinfile:
+    path: /boot/config.txt
+    insertafter: EOF
+    line: 'gpu_mem=16'

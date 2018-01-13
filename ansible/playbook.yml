@@ -1,0 +1,16 @@
+- hosts: all
+  gather_facts: yes
+  remote_user: networkmon
+  roles:
+    - general
+    - graphite
+
+  handlers:
+    - name: Restart collectd
+      become: yes
+      become_user: root
+      command: systemctl restart collectd
+
+  handlers:
+    - name: restart sshd
+      service: name=sshd state=restarted enabled=yes

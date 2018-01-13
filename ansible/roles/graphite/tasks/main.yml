@@ -1,0 +1,13 @@
+- name: Install collectd
+  apt: "name=collectd"
+
+- name: Install collectd-utils
+  apt: "name=collectd-utils"
+
+- name: Copy collectd.conf
+  become: yes
+  become_user: root
+  copy:
+    src: "{{playbook_dir}}/roles/graphite/files/collectd.conf"
+    dest: /etc/collectd/collectd.conf
+  notify: Restart collectd
