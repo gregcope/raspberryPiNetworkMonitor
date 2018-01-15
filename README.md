@@ -32,8 +32,8 @@ Install
 ================================
 - `configPi.sh` reconfigures the pi enough to run the ansible playbook
 - `ansible` managed
-- installs the playbook
-- install the `gpg` key to check the sig of the playbook
+- Installs the playbook
+- Install the `gpg` key to check the sig of the playbook
 - `Patches all the things` and later on enables unattended upgrades
 - Installs some packages to get `collectd` working
 - Installs and registers Amazon SSM
@@ -50,3 +50,11 @@ How to make a change
 1. Make a pull request
 2. A job will then change and sign the build
 3. At the top of the hour, the hosts will download, check the sig, and re-run the playbook
+
+Bill Of Materials
+==================================
+0. RaspberryPI Model 3 (wifi+ethernet)
+1. Micro USB 4 Active POE Splitter Power Over Ethernet 48V to 5V 2.4A Raspberry Pi
+2. RJ45 IP68 Network Outdoor AP Waterproof Connector Durable 10mm Hole 8 Core
+3. RS components IP65 Box 153x110x66mm (Low lid)
+4. Short ethernet cable
