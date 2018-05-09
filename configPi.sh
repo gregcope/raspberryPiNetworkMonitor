@@ -10,6 +10,6 @@
 # TODO
 # Download and run the ansible playbook
 
-sudo apt-get -y install ansible openssh-server python gnupg
+sudo apt-get -y install ansible openssh-server python gnupg collectd
 
 
