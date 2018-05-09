@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 # File to reconfig a rasbperryPI
 # just a bootstrap
