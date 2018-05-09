@@ -35,7 +35,9 @@ Create RPI image
 3. On boot menu enable `ssh`
 4. `sudo apt-get update`
 5. `sudo apt-get upgrade`
-6. `sudo apt-get install git ansible collectd`
+6. `git clone https://github.com/gregcope/raspberryPiNetworkMonitor.git`
+7. `cd raspberryPiNetworkMonitor`
+8. `./configPi.sh`
 
 Install
 ================================
