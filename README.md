@@ -37,7 +37,7 @@ Create RPI image
 5. `sudo apt-get upgrade`
 6. `git clone https://github.com/gregcope/raspberryPiNetworkMonitor.git`
 7. `cd raspberryPiNetworkMonitor`
-8. `./configPi.sh`
+8. `sudo ./configPi.sh`
 
 Install
 ================================
