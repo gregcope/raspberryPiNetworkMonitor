@@ -33,12 +33,13 @@ Create RPI image
 1. Download `Noobs` from RPI foundation
 2. Install minimal Rasbian
 3. On boot menu enable `ssh`
-4. `sudo apt-get -y update`
+4. update/upgrade; `sudo apt-get -y update`
 5. `sudo apt-get -y upgrade`
-6. `sudo apt-get -y git`
-7. `git clone https://github.com/gregcope/raspberryPiNetworkMonitor.git`
+6. install git ... `sudo apt-get -y git`
+7. Get the repo; `git clone https://github.com/gregcope/raspberryPiNetworkMonitor.git`
 8. `cd raspberryPiNetworkMonitor`
-9. `sudo ./configPi.sh`
+9. Run the boot strap config script; `sudo ./configPi.sh`
+10. Run `ansible-playbook -i ansible/inventory --become --ask-become-pass ansible/playbook.yml`
 
 Install
 ================================
