@@ -39,7 +39,7 @@ Create RPI image
 7. Get the repo; `git clone https://github.com/gregcope/raspberryPiNetworkMonitor.git`
 8. `cd raspberryPiNetworkMonitor`
 9. Run the boot strap config script; `sudo ./configPi.sh`
-10. Run `ansible-playbook -i ansible/inventory --become --ask-become-pass ansible/playbook.yml`
+10. Run `ansible-playbook -i "localhost," -c local ansible/playbook.yml`
 
 Install
 ================================
