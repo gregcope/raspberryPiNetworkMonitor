@@ -98,3 +98,9 @@
     dest: /boot/config.txt
     insertafter: EOF
     line: 'gpu_mem=16'
+
+- name: "Kernel panic and OOM cause reboots"
+  copy:
+    src: "{{playbook_dir}}/roles/general/files/kernel_panic_oom_reboot.conf"
+    dest: /etc/sysctl.d/kernel_panic_oom_reboot.conf
+
