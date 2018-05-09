@@ -28,6 +28,15 @@ Why not the Zero W
 ================================
 These are only avaliable in single order quantity
 
+Create RPI image
+===============================
+1. Download `Noobs` from RPI foundation
+2. Install minimal Rasbian
+3. On boot menu enable `ssh`
+4. `sudo apt-get update`
+5. `sudo apt-get upgrade`
+6. `sudo apt-get install git ansible collectd`
+
 Install
 ================================
 - `configPi.sh` reconfigures the pi enough to run the ansible playbook
