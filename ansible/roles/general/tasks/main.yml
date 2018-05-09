@@ -55,7 +55,7 @@
 
 - name: Download SSM agent
   get_url:
-    url: https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb
+    url: https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_arm/amazon-ssm-agent.deb
     dest: /tmp/amazon-ssm-agent.deb
     force: no
 
