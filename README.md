@@ -70,4 +70,4 @@ Bill Of Materials
 1. Micro USB 4 Active POE Splitter Power Over Ethernet 48V to 5V 2.4A Raspberry Pi
 2. RJ45 IP68 Network Outdoor AP Waterproof Connector Durable 10mm Hole 8 Core
 3. RS components IP65 Box 153x110x66mm (Low lid)
-4. Short ethernet cable
+4. ethernet cable
