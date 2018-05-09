@@ -33,11 +33,12 @@ Create RPI image
 1. Download `Noobs` from RPI foundation
 2. Install minimal Rasbian
 3. On boot menu enable `ssh`
-4. `sudo apt-get update`
-5. `sudo apt-get upgrade`
-6. `git clone https://github.com/gregcope/raspberryPiNetworkMonitor.git`
-7. `cd raspberryPiNetworkMonitor`
-8. `sudo ./configPi.sh`
+4. `sudo apt-get -y update`
+5. `sudo apt-get -y upgrade`
+6. `sudo apt-get -y git`
+7. `git clone https://github.com/gregcope/raspberryPiNetworkMonitor.git`
+8. `cd raspberryPiNetworkMonitor`
+9. `sudo ./configPi.sh`
 
 Install
 ================================
