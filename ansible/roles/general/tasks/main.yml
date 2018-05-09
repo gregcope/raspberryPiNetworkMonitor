@@ -6,31 +6,31 @@
     src: "{{playbook_dir}}/roles/general/files/ansible-playbook"
     dest: /usr/local/sbin/ansible-playbook
 
-- name: Install networkmon code signing key
-  become: yes
-  become_user: root
-  copy:
-    src: "{{playbook_dir}}/roles/general/files/networkmon-signing-key.gpg"
-    dest: /root/networkmon-signing-key.gpg
+#- name: Install networkmon code signing key
+#  become: yes
+#  become_user: root
+#  copy:
+#    src: "{{playbook_dir}}/roles/general/files/networkmon-signing-key.gpg"
+#    dest: /root/networkmon-signing-key.gpg
 
-- name: Install networkmon code signing key
-  become: yes
-  become_user: root
-  command: gpg --import /root/networkmon-signing-key.gpg
+#- name: Install networkmon code signing key
+#  become: yes
+#  become_user: root
+#  command: gpg --import /root/networkmon-signing-key.gpg
 
-- name: Install SSH keys
-  authorized_key:
-    user: networkmon
-    state: present
-    key: "{{ lookup('file', '{{playbook_dir}}/roles/general/files/ssh.keys') }}"
+#- name: Install SSH keys
+#  authorized_key:
+#    user: networkmon
+#    state: present
+#    key: "{{ lookup('file', '{{playbook_dir}}/roles/general/files/ssh.keys') }}"
 
-- name: Copy sshd_config
-  become: yes
-  become_user: root
-  copy:
-    src: "{{playbook_dir}}/roles/general/files/sshd_config"
-    dest: /etc/ssh/sshd_config
-  notify: restart sshd
+#- name: Copy sshd_config
+#  become: yes
+#  become_user: root
+#  copy:
+#    src: "{{playbook_dir}}/roles/general/files/sshd_config"
+#    dest: /etc/ssh/sshd_config
+#  notify: restart sshd
 
 - name: Update everything
   become: yes
