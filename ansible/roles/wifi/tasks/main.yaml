@@ -1,9 +1,11 @@
 ---
 - name: 'Configure WIFI'
   copy: src=./wpa_supplicant.conf dest=/etc/wpa_supplicant/wpa_supplicant.conf mode=0600
+  #notify: restart networking
 
 - name: create interface file
   file: path=/etc/network/interfaces.d/interfaces state=touch mode=0644
+  #notify: restart networking
 
 - name: add txt to file interfaces
   blockinfile: 
@@ -12,3 +14,4 @@
       auto wlan0
       iface wlan0 inet dhcp
       wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+  #notify: restart networking
