@@ -5,7 +5,8 @@
 - name: create interface file
   file: path=/etc/network/interfaces.d/interfaces state=touch mode=0777
 
-- blockinfile: |
+- name: add txt to file interfaces
+  blockinfile: |
     dest=/etc/network/interfaces.d/interfaces backup=yes
     content=“auto wlan0
         iface wlan0 inet dhcp
