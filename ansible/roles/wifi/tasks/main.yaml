@@ -4,3 +4,9 @@
 
 - name: create interface file
   file: path=/etc/network/interfaces.d/interfaces state=touch mode=0777
+
+- blockinfile: |
+    dest=/etc/network/interfaces.d/interfaces backup=yes
+    content=“auto wlan0
+        iface wlan0 inet dhcp
+        wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf"
