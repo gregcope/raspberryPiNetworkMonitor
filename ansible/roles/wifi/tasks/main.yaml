@@ -3,7 +3,7 @@
   copy: src=./wpa_supplicant.conf dest=/etc/wpa_supplicant/wpa_supplicant.conf mode=0600
 
 - name: create interface file
-  file: path=/etc/network/interfaces.d/interfaces state=touch mode=0777
+  file: path=/etc/network/interfaces.d/interfaces state=touch mode=0644
 
 - name: add txt to file interfaces
   blockinfile: 
