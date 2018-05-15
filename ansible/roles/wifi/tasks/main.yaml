@@ -1,0 +1,19 @@
+# Set WiFi Options for the Pi
+# Depends on:
+#   vars:
+#       wifi:
+#           ssid: FTWLAN 
+#           password: L@tme!n
+#           country: US
+#   handlers:
+#       handlers/reboot.yml
+#   files:
+#       templates/wpa_supplicant.conf
+#    
+
+# Set up WiFi from a template
+- name: update wpa_supplicant file
+  become: yes
+  template: src=../files/wpa_supplicant.conf dest=/etc/wpa_supplicant/wpa_supplicant.conf
+  notify: 
+    - reboot
