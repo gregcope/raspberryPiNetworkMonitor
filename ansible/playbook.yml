@@ -4,6 +4,7 @@
   roles:
     - general
     - graphite
+    - wifi
 
   handlers:
     - name: Restart collectd
