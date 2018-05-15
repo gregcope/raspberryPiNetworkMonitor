@@ -7,7 +7,7 @@
 
 - name: add txt to file interfaces
   blockinfile: 
-    path: /etc/network/interfaces.d/interfaces
+    dest: /etc/network/interfaces.d/interfaces
     block: |
       auto wlan0
       iface wlan0 inet dhcp
