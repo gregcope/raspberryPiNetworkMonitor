@@ -15,3 +15,8 @@
   handlers:
     - name: restart sshd
       service: name=sshd state=restarted enabled=yes
+
+  # Restarts the network as required
+  handlers:
+    - name: restart networking
+      service: name=networking state=restarted
