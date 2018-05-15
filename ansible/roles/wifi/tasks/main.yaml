@@ -6,8 +6,9 @@
   file: path=/etc/network/interfaces.d/interfaces state=touch mode=0777
 
 - name: add txt to file interfaces
-  blockinfile: |
-    dest=/etc/network/interfaces.d/interfaces backup=yes
-    content=“auto wlan0
-        iface wlan0 inet dhcp
-        wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf"
+  blockinfile: 
+    path: /etc/network/interfaces.d/interfaces
+    block: |
+      auto wlan0
+      iface wlan0 inet dhcp
+      wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
