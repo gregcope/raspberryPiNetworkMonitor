@@ -12,11 +12,9 @@
       become_user: root
       command: systemctl restart collectd
 
-  handlers:
     - name: restart sshd
       service: name=sshd state=restarted enabled=yes
 
-  # Restarts the network as required
-  handlers:
+    # Restarts the network as required
     - name: restart networking
       service: name=networking state=restarted
