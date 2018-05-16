@@ -88,10 +88,10 @@
     name: "ansible-playbook"
 
 - name: Disable audio in config.txt
-  lineinfile:
+  replace:
     dest: /boot/config.txt
     regexp: '^dtparam=audio=on'
-    line: '#dtparam=audio=on'
+    replace: '#dtparam=audio=on'
 
 - name: lower gpu mem in config.txt at EOF
   lineinfile:
