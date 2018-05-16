@@ -65,9 +65,10 @@
     deb: /tmp/amazon-ssm-agent.deb
 
 - name: Enable SSM agent
-  become: yes
-  become_user: root
-  command: systemctl enable amazon-ssm-agent
+  service:
+    name: amazon-ssm-agent
+    enabled: yes
+    state: started
 
 - name: Install Unattended-upgrades
   become: yes
