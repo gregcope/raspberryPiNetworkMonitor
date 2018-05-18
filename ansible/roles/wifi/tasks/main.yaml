@@ -15,3 +15,10 @@
       iface wlan0 inet dhcp
       wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
   #notify: restart networking
+
+- name: add static route to file interfaces
+  blockinfile:
+    dest: /etc/network/interfaces.d/interfaces
+    block: |
+      iface eth0 inet dhcp
+         up route add -net 10.0.0.0 netmask 255.0.0.0 gw eth0 metric 1  
