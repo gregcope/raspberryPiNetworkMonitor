@@ -19,10 +19,10 @@
 - name: add metric to dhcpcd file
   blockinfile:
     dest: /etc/dhcpcd.conf
-    block: ö
+    block: | 
       interface wlan0;
          metric 200;
-      interface eth0
+      interface eth0;
          metric 300;
   #notify: restart networking
 
