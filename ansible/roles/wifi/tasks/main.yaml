@@ -16,9 +16,19 @@
       wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
   #notify: restart networking
 
-- name: add static route to file interfaces
+- name: create route file
+  file: path=/lib/dhcpcd/dhcpcd-hooks/40-route state=touch mode=0644
+  #notify: restart networking
+
+- name: add txt to file interfaces
   blockinfile:
-    dest: /etc/network/interfaces.d/interfaces
-    block: |
-      iface eth0 inet dhcp
-         up route add -net 10.0.0.0 netmask 255.0.0.0 gw eth0 metric 1  
+    dest: /lib/dhcpcd/dhcpcd-hooks/40-route 
+    block: ö
+      ip route add 10.0.0.0/8 via eth0
+  #notify: restart networking
+
+
+
+
+
+
