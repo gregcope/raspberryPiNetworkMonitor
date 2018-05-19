@@ -20,10 +20,10 @@
   blockinfile:
     dest: /etc/dhcpcd.conf
     block: | 
-      interface wlan0;
-         metric 200;
-      interface eth0;
-         metric 300;
+      interface wlan0
+         metric 200
+      interface eth0
+         metric 300
   #notify: restart networking
 
 
