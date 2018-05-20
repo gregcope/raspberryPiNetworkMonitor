@@ -5,7 +5,8 @@
 
 - name: create interface file
   copy:
-    path: /etc/network/interfaces.d/interfaces
+    content: ""
+    dest: /etc/network/interfaces.d/interfaces
     force: no
     mode: :0644
   #notify: restart networking
