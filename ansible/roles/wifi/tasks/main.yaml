@@ -4,7 +4,10 @@
   #notify: restart networking
 
 - name: create interface file
-  file: path=/etc/network/interfaces.d/interfaces state=touch mode=0644
+  copy:
+    path: /etc/network/interfaces.d/interfaces
+    force: no
+    mode: :0644
   #notify: restart networking
 
 - name: add txt to file interfaces
