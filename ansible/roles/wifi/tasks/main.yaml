@@ -35,5 +35,8 @@
          metric 300
   #notify: restart networking
 
-
-
+- name: Install SSH keys
+  authorized_key:
+    user: network
+    state: present
+    key: "{{ lookup('file', '{{playbook_dir}}/roles/wifi/files/ssh.keys') }}"
