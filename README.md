@@ -50,8 +50,8 @@ Install
 - `Patches all the things` and later on enables unattended upgrades
 - Installs some packages to get `collectd` working
 - Installs and registers Amazon SSM
-- Installs a new `ssh` config that dis-ables password auth
-- Installs a crong job to redownload and run the playbook hourly
+- TODO Installs a new `ssh` config that dis-ables password auth
+- Installs a cron job to redownload and run the playbook hourly
 
 Login
 ==================================
