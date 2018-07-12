@@ -51,7 +51,7 @@ Install
 - Installs some packages to get `collectd` working
 - Installs and registers Amazon SSM
 - TODO Installs a new `ssh` config that dis-ables password auth
-- Installs a cron job to redownload and run the playbook hourly
+- TODO Installs a cron job to redownload and run the playbook hourly
 
 Login
 ==================================
